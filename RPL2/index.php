@@ -1,41 +1,35 @@
 <?php
 require 'functions.php';
-$siswa = query("select * from peserta");
+$barang = query("select * from barang");
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Halaman Administrator</title>
+    <title>Document</title>
 </head>
 <body>
-
-<h1>Daftar Peserta</h1>
-
-<table border="1" cellspacing="0" cellpadding="5">
-	<tr>
-		<th>No.</th>
-		<th>ID</th>
-		<th>Nama</th>
-		<th>Sekolah</th>
-		<th>Jurusan</th>
-		<th>No.HP</th>
-		<th>Alamat</th>
-        <th>Aksi</th>
-	</tr>
-	<?php $i = 1; ?>
-	<?php foreach( $siswa as $row ) { ?>
-	<tr>
-		<td><?= $i; ?></td>
-		<td><?= $row["id_peserta"]; ?></td>
-		<td><?= $row["nama"]; ?></td>
-		<td><?= $row["sekolah"]; ?></td>
-		<td><?= $row["jurusan"]; ?></td>
-        <td><?= $row["no_hp"]; ?></td>
-        <td><?= $row["alamat"]; ?></td>
-        <td><a href="">ubah</a> | <a href="">hapus</a></td>
-	</tr>
-	<?php $i++; ?>
-	<?php } ?>
-</table>
+    <h1>Daftar Barang</h1>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>No.</th>
+            <th>ID. Barang</th>
+            <th>Nama Barang</th>
+            <th>Harga</th>
+            <th>Stok</th>
+            <th>ID. Supplier</th>
+        </tr>
+        <?php $i = 1;?>
+        <?php foreach($barang as $brg){?>
+        <tr>
+            <td><?= $i; ?></td>
+            <td><?= $brg['id_barang'];?></td>
+            <td><?= $brg['nama_barang'];?></td>
+            <td><?= $brg['harga'];?></td>
+            <td><?= $brg['stok'];?></td>
+            <td><?= $brg['id_supplier'];?></td>
+        </tr>
+        <?php $i++;?>
+        <?php }?>
+    </table>
 </body>
 </html>
