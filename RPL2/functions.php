@@ -1,21 +1,20 @@
 <?php
+//mysqli_connect
+function koneksi(){
+    $conn = mysqli_connect("localhost","root", "", "penjualan");
 
-function koneksi() {
-	$conn = mysqli_connect("localhost", "root", "", "siswa");
-	return $conn;
+    return $conn;
 }
 
+function query($sql){
+    $conn = koneksi();
+    $result = mysqli_query($conn, $sql);
 
-function query($sql) {
-	$conn = koneksi();
-	$result = mysqli_query($conn, $sql);
-
-	$rows = [];
-	while( $row = mysqli_fetch_assoc($result) ) {
-		$rows[] = $row;
-	}
-
-	return $rows;
+    $rows = [];
+    while($row = mysqli_fetch_assoc($result)){
+        $rows[] = $row;
+    }
+    return $rows;
 }
 
 ?>
