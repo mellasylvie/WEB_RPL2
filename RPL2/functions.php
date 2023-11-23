@@ -17,4 +17,18 @@ function query($sql){
     return $rows;
 }
 
+function tambah_barang($data){
+    $conn = koneksi();
+
+    $nama = $data['nama_barang'];
+    $harga = $data['harga'];
+    $stok = $data['stok'];
+    $id_supplier = $data['id_supplier'];
+
+    $sql = "INSERT INTO barang VALUES (null, '$nama','$harga', '$stok', '$id_supplier')";
+    
+    mysqli_query($conn, $sql); 
+
+    return mysqli_affected_rows($conn);
+}
 ?>
